@@ -1,0 +1,10 @@
+[package]
+name = "compositions"
+version = "0.1.0"
+authors = ["Andrey Zabolotskiy"]
+
+[target.'cfg(windows)'.dependencies]
+clipboard-win = { version = "4.0", optional = true }
+
+[features]
+clip = ["clipboard-win"]
