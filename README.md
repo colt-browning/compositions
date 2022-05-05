@@ -29,6 +29,7 @@ OEIS sequences for the compositions and the corresponding command line arguments
 * [A066099](https://oeis.org/A066099): `reverse`
 * [A108730](https://oeis.org/A108730): `reverse -1`
 * [A228351](https://oeis.org/A228351): `reverse colex`
+* [A163510](https://oeis.org/A163510): `reverse colex -1`
 * [A124734](https://oeis.org/A124734): `len+`
 * [A124735](https://oeis.org/A124735): `len+ -1`
 * [A337243](https://oeis.org/A337243): `len+ colex`
