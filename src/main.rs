@@ -64,7 +64,7 @@ fn main() {
 		}
 	}
 	if flat {
-		let mut s = "1".to_string();
+		let mut s = if n == 0 { String::new() } else { format!("{}", c[1][0][0]) };
 		for cn in c.iter().skip(2) {
 			for comp in cn {
 				for n in comp {

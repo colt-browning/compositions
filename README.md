@@ -11,7 +11,7 @@ Command line arguments (all of them are optional):
 * `-1`: subtract 1 from each term (this allows listing all tuples of nonnegative integers);
 * `flat`: instead of pretty formatting, output all terms in one line, like in the OEIS.
 
-On Windows, compile with `--feature clip` to put the "flat" output to the clipboard. This adds dependencies.
+On Windows, compile with `--features clip` to put the "flat" output to the clipboard. This adds dependencies.
 
 The pretty output of `cargo run 4` looks like this:
 ```
