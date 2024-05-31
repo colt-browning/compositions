@@ -16,11 +16,11 @@ fn main() {
 			"len-" =>	by_length = -1,
 			_ => match x.parse::<usize>() {
 				Ok(x) => n = x,
-				Err(_) => eprintln!("Illegal argument: {}", x),
+				Err(_) => eprintln!("Illegal argument: {x}"),
 			}
 		}
 	}
-	let mut c = vec![vec![vec![Vec::<usize>::new()]]]; // indices: sum, length, № of comopsition, № of its component
+	let mut c = vec![vec![vec![Vec::<usize>::new()]]]; // indices: sum, length, № of composition, № of its component
 	for n in 1..=n {
 		let mut cn = vec![];
 		if by_length != 0 {
@@ -51,8 +51,8 @@ fn main() {
 			cn.reverse();
 		}
 	}
-	let mut c: Vec<_> = c.iter_mut().map(
-		|cn| -> Vec<_> {cn.iter_mut().fold(vec![], |mut cn, x| {cn.append(x); cn})}
+	let mut c: Vec<_> = c.into_iter().map(
+		|cn| -> Vec<_> { cn.into_iter().flatten().collect() }
 		).collect();
 	if minus1 {
 		for cn in &mut c {
@@ -64,22 +64,22 @@ fn main() {
 		}
 	}
 	if flat {
-		let mut s = if n == 0 { String::new() } else { format!("{}", c[1][0][0]) };
+		let mut s = if n == 0 { String::new() } else { c[1][0][0].to_string() };
 		for cn in c.iter().skip(2) {
 			for comp in cn {
 				for n in comp {
-					s += &format!(", {}", n);
+					s += &format!(", {n}");
 				}
 			}
 		}
-		println!("{}", s);
+		println!("{s}");
 		#[cfg(feature = "clipboard-win")]
 		if let Err(e) = clipboard_win::set_clipboard_string(&s) {
-			eprintln!("{}", e);
+			eprintln!("{e}");
 		}
 	} else {
 		for cn in &c {
-			println!("{:?}", cn);
+			println!("{cn:?}");
 		}
 	}
 }

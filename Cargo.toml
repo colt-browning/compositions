@@ -1,10 +1,10 @@
 [package]
 name = "compositions"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Andrey Zabolotskiy"]
 
 [target.'cfg(windows)'.dependencies]
-clipboard-win = { version = "4.4", optional = true }
+clipboard-win = { version = "5.3", optional = true }
 
 [features]
 clip = ["clipboard-win"]
